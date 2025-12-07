@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   1. COLOR VARIABLES (Theming Engine)
+   ========================================= */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6; /* Light gray for cards/inputs */
+  --text-primary: #111827; /* Near black, softer than #000 */
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+  --accent-color: #2563eb; /* Blue-600 */
+}
+
+.dark {
+  --bg-primary: #121212; /* Standard dark mode bg */
+  --bg-secondary: #1f2937; /* Gray-800 */
+  --text-primary: #f9fafb; /* Gray-50 */
+  --text-secondary: #9ca3af;
+  --border-color: #374151;
+  --accent-color: #3b82f6; /* Blue-500 (lighter for dark mode) */
+}
+
+/* =========================================
+   2. HIGH CONTRAST MODE (Accessibility)
+   ========================================= */
+.high-contrast {
+  --bg-primary: #000000 !important;
+  --bg-secondary: #000000 !important;
+  --text-primary: #ffff00 !important; /* Bright Yellow */
+  --text-secondary: #00ff00 !important; /* Bright Green */
+  --border-color: #ffffff !important;
+  --accent-color: #00ffff !important; /* Cyan */
+}
+
+/* Make borders thicker in high contrast for visibility */
+.high-contrast * {
+  border-width: 2px !important;
+}
+
+/* =========================================
+   3. GLOBAL RESETS & TYPOGRAPHY
+   ========================================= */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  /* Smooth transitions for theme switching */
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Font Smoothing for 'Professional' feel */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   4. SCROLLBAR STYLING
+   ========================================= */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* Light gray */
+  border-radius: 5px;
+  border: 2px solid var(--bg-primary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563; /* Dark gray */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =========================================
+   5. IFRAME & UTILS
+   ========================================= */
+iframe {
+  background: #ffffff !important; /* Websites expect white backgrounds */
+  display: block;
+}
+
+/* Optional: If you want the browser content to look 'dark' in dark mode, 
+   uncomment the lines below. It inverts colors to fake dark mode. */
+/* .dark iframe {
+  filter: invert(1) hue-rotate(180deg);
+} 
+*/
+
+/* Helper utility to center content vertically/horizontally */
+.center-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
